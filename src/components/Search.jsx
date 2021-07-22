@@ -26,7 +26,6 @@ const Search = () => {
 
   }, []);
 
-
   //Función para obtener el valor del input
   const handleChange = e =>{
     setBusqueda(e.target.value);
