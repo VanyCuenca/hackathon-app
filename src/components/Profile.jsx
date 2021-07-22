@@ -12,19 +12,6 @@ const getSignIn = () =>{
   )
 }
 
-const ValidationComp = () => {
-  
-  return(
-    <div > Sus skills han sido validadas </div>
-  )
-}
-
-const userValidate = () => {
-  return(
-    ReactDOM.render (
-      <ValidationComp />, document.getElementById('validation-user'))
-  )
-}
 
 const Profile = () => {
 
@@ -54,7 +41,7 @@ const Profile = () => {
         <>
             <ul key = {item.id}>
               <div className="username"> Nombre del usuario
-                <li className="skills-profile" > {item.Nombre} </li>
+                <li className="username" > {item.Nombre} </li>
                 <small className="skills-profile"> Programador full stack </small>
               </div>
                 <div className="username"> Numero de empleado: 
