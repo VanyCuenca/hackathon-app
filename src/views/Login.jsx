@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button} from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import { auth } from '../firebaseConfig';
 import logo from '../img/logo.png';
@@ -13,18 +13,12 @@ const Login = () => {
     let history = useHistory();
    
 
-    const add = () => {
-      const mail= email;
-      console.log(mail);
-      return mail;
-    }
-  
     const LoginUser = (e) => {
       e.preventDefault();
       auth.signInWithEmailAndPassword(email, pass)
         .then( ()=>{
           localStorage.setItem('isAuth', true);
-          history.push('/dashboard');
+          history.push(`/userprofile/${email}`); 
         })
         .catch((err) => {
           const { code } = err;
@@ -35,18 +29,18 @@ const Login = () => {
             case 'auth/user-not-found':
               setMsgError('Usuario no registrado');
               break;
-            default: setMsgError('');
+            default: setMsgError('Error en inicio de sesion');
           }
         });
     };
 
     return (
       <div className="login-container">
+        
         <div className="form-container">
         <img src={logo} className="logo" alt="" />
           <div className="box">
-            <Form className="form" onClick ={add} data-email={email}>
-           
+            <Form className="form" >
               <Form.Group controlId="formBasicEmail">
                 <div>
                   <Form.Label>Correo:</Form.Label>
@@ -78,8 +72,9 @@ const Login = () => {
               <Button
                 onClick={(e) => LoginUser(e)}
                 variant="primary"
-                type="submit"
+                type="button"
                 className="login-btn"
+                
                 
               >
                 Iniciar Sesión
