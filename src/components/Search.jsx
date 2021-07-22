@@ -2,12 +2,13 @@ import { db } from '../firebaseConfig';
 import React from 'react';
 import searcher from '../img/searcher.png'
 import { useState } from 'react';
+import { useParams } from "react-router-dom";
 
 const Search = () => {
 
   const [skills, setSkills] = useState([]);
   const [busqueda, setBusqueda]= useState("");
-
+  let { usermail } = useParams();
 
   React.useEffect(() => {
 
@@ -58,14 +59,7 @@ const Search = () => {
                   <figure>
                     <div className="user-number">Nombre: {item.Nombre}</div>
                     <div className="user-number">Número: {item.Numero}</div>
-                    {/* <div className="user-skills">Skills: {item.Skills}</div> */}
-                    <button
-                      className="seeMoreBtn"
-                      onClick={() => window.location.href = 'http://localhost:3000/userprofile'}
-                    >
-                      Ver más...
-                    </button>
-
+                    <a href ={`/userprofile/${item.Email}`}> Ver más...</a>
                   </figure>
                 </li>
               </div>
