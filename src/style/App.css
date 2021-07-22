@@ -210,13 +210,14 @@ img {
   font-size:x-large;
   font-weight: bold;
   list-style-type:none;
-  margin:  0 0 1em 2em;
+  margin:  0.5em;
 }
 
 .skills-profile{
-  font-size:medium;
+  font-size:large;
   list-style-type:none;
   margin:  0 0 1em 2em;
+  font-weight: normal;
 }
 
 .menu-options{
@@ -240,4 +241,10 @@ img {
   width: max-content;
   height: max-content;
 }
-
+.dashboardGraphics{
+  display: flex;
+  justify-content: space-around;
+}
+.demandaContainer, .ofertaContainer{
+  width: 45%;
+}
