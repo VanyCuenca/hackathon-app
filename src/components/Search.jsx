@@ -26,22 +26,6 @@ const Search = () => {
 
   }, []);
 
-  if(skills.length > 0) {
-    const skillFilter = [...skills];
-    skillFilter
-    .filter(user => 
-     user.Skills.filter(skill => console.log(skill.includes('React')))
-
-  )
- 
-  }
-  
-
-
-
-  // console.log("filtro", skillsFilter)
-
-
 
   //Función para obtener el valor del input
   const handleChange = e =>{
@@ -76,12 +60,12 @@ const Search = () => {
                     <div className="user-number">Nombre: {item.Nombre}</div>
                     <div className="user-number">Número: {item.Numero}</div>
                     {/* <div className="user-skills">Skills: {item.Skills}</div> */}
-                    {/* <button
+                    <button
                       className="seeMoreBtn"
                       onClick={() => window.location.href = 'http://localhost:3000/userprofile'}
                     >
                       Ver más...
-                    </button> */}
+                    </button>
 
                   </figure>
                 </li>
