@@ -41,16 +41,10 @@ const Search = () => {
               <div className="user-container">
                 <li className="user-info" id={item.Nombre}>
                   <figure>
-<<<<<<< HEAD
-                    <div className="user-number">Nombre: {item.Nombre}</div>
-                    <div className="user-number">Número: {item.Numero}</div>
-                    <a href ={`/userprofile/${item.Email}`}> Ver más...</a>
-=======
                     <div className="user-number">{item.Nombre}</div>
                     <div className="user-number"> {item.Numero}</div>
                     <div className="user-number"> {item.Email}</div>
                     <a className="link-color" href ={`/userprofile/${item.Email}`}> Ver más...</a>
->>>>>>> 74660e4b9f612c04e73cf7ec526e87ef382532c8
                   </figure>
                 </li>
               </div>
