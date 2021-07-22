@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const Search = () => {
 
-  let [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState([]);
   const [busqueda, setBusqueda]= useState("");
 
 
@@ -16,7 +16,7 @@ const Search = () => {
         const data = await db.collection('oferta').get()
         const dataArray = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         setSkills(dataArray);
-        // console.log(dataArray)
+
       } catch (err) {
         console.log(err)
       }
@@ -25,6 +25,23 @@ const Search = () => {
     gettingData();
 
   }, []);
+
+  if(skills.length > 0) {
+    const skillFilter = [...skills];
+    skillFilter
+    .filter(user => 
+     user.Skills.filter(skill => console.log(skill.includes('React')))
+
+  )
+ 
+  }
+  
+
+
+
+  // console.log("filtro", skillsFilter)
+
+
 
   //Función para obtener el valor del input
   const handleChange = e =>{
@@ -59,12 +76,13 @@ const Search = () => {
                     <div className="user-number">Nombre: {item.Nombre}</div>
                     <div className="user-number">Número: {item.Numero}</div>
                     {/* <div className="user-skills">Skills: {item.Skills}</div> */}
-                    <button
+                    {/* <button
                       className="seeMoreBtn"
                       onClick={() => window.location.href = 'http://localhost:3000/userprofile'}
                     >
                       Ver más...
-                    </button>
+                    </button> */}
+
                   </figure>
                 </li>
               </div>
