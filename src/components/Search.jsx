@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const Search = () => {
 
-  let [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState([]);
   const [busqueda, setBusqueda]= useState("");
   
 
@@ -15,6 +15,7 @@ const Search = () => {
         const data = await db.collection('oferta').get()
         const dataArray = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         setSkills(dataArray);
+
       } catch (err) {
         console.log(err)
       }
